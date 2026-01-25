@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《好餓的毛毛蟲》SEL 指南 | The Very Hungry Caterpillar SEL Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <header class="mb-8">
+            <div class="flex items-center gap-4 mb-2">
+                <div class="bg-green-500 p-2 rounded-xl text-white shadow-lg shadow-green-100">
+                    <i data-lucide="book-open" class="w-8 h-8"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">
+                        《好餓的毛毛蟲》SEL 指南
+                    </h1>
+                    <p class="text-slate-500 font-medium">The Very Hungry Caterpillar SEL Guide</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-px">
+            <button onclick="switchTab('analysis')" id="btn-analysis" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-t-xl text-sm font-bold transition-all border-b-2 bg-white text-green-600 border-green-500 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+                <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
+                <div class="text-left leading-tight">
+                    <div class="block">視覺化分析</div>
+                    <div class="text-[10px] opacity-70 uppercase tracking-tighter">Visual Analysis</div>
+                </div>
+            </button>
+            <button onclick="switchTab('activities')" id="btn-activities" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-t-xl text-sm font-bold transition-all border-b-2 text-slate-400 border-transparent hover:text-slate-600 hover:bg-slate-100">
+                <i data-lucide="info" class="w-4 h-4"></i>
+                <div class="text-left leading-tight">
+                    <div class="block">教學體驗活動</div>
+                    <div class="text-[10px] opacity-70 uppercase tracking-tighter">Teaching Activities</div>
+                </div>
+            </button>
+            <button onclick="switchTab('game')" id="btn-game" class="tab-btn flex items-center gap-2 px-6 py-3 rounded-t-xl text-sm font-bold transition-all border-b-2 text-slate-400 border-transparent hover:text-slate-600 hover:bg-slate-100">
+                <i data-lucide="gamepad-2" class="w-4 h-4"></i>
+                <div class="text-left leading-tight">
+                    <div class="block">互動小遊戲</div>
+                    <div class="text-[10px] opacity-70 uppercase tracking-tighter">Interactive Game</div>
+                </div>
+            </button>
+        </nav>
+
+        <!-- Tab 1: Analysis -->
+        <div id="analysis" class="tab-content active space-y-8">
+            <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i data-lucide="bar-chart-2" class="text-green-500"></i>
+                    <span>SEL 向度強度分析 | SEL Dimension Intensity Analysis</span>
+                </h2>
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-full md:w-1/2 flex justify-center" id="radar-container">
+                        <!-- Radar Chart SVG will be injected here -->
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <div class="p-4 bg-green-50 rounded-xl border border-green-100">
+                            <h3 class="font-bold text-green-800">核心發現 | Core Findings</h3>
+                            <p class="text-slate-700 text-sm mt-2">
+                                《好餓的毛毛蟲》在「自我覺察」與「負責任決策」方面極具教學價值。毛毛蟲對飢餓感的覺知以及最終選擇綠色葉子來舒緩身體不適，是引導孩子理解身體訊號與決策後果的最佳範例。
+                            </p>
+                            <p class="text-slate-500 text-xs italic mt-1">
+                                "The Very Hungry Caterpillar" excels in Self-Awareness and Responsible Decision-Making. The caterpillar's awareness of hunger and the eventual choice of a green leaf to soothe physical discomfort are perfect examples for children to understand bodily signals and the consequences of their choices.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-4" id="dimension-cards">
+                <!-- Dimension cards will be injected by JS -->
+            </section>
+        </div>
+
+        <!-- Tab 2: Activities -->
+        <div id="activities" class="tab-content space-y-6">
+            <!-- Activities will be injected by JS -->
+        </div>
+
+        <!-- Tab 3: Game -->
+        <div id="game" class="tab-content">
+            <div id="game-container" class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm min-h-[400px] flex flex-col items-center justify-center text-center">
+                <!-- Game logic handled by JS -->
+            </div>
+        </div>
+
+        <footer class="mt-12 pt-6 border-t border-slate-200 text-center text-slate-400 text-xs">
+            <p>© 2024 SEL Picture Book Guide Generator | 基於文本情感分析與素養教學設計</p>
+        </footer>
+    </div>
+
+    <script>
+        // Data Definitions
+        const selData = [
+            { label: { zh: '自我覺察', en: 'Self-Awareness' }, score: 90 },
+            { label: { zh: '自我管理', en: 'Self-Management' }, score: 70 },
+            { label: { zh: '社會覺察', en: 'Social Awareness' }, score: 30 },
+            { label: { zh: '人際技巧', en: 'Relationship Skills' }, score: 20 },
+            { label: { zh: '負責任決策', en: 'Responsible Decision-Making' }, score: 85 },
+        ];
+
+        const dimensions = [
+            { icon: 'user', color: 'text-blue-500', title: '自我覺察 Self-Awareness', zh: '識別飢餓、不適感與成長的喜悅。', en: 'Identifying hunger, discomfort, and the joy of growth.' },
+            { icon: 'brain', color: 'text-purple-500', title: '自我管理 Self-Management', zh: '在繭中等待的耐心與控制過度飲食的慾望。', en: 'Patience while waiting in the cocoon and managing the impulse to overeat.' },
+            { icon: 'users', color: 'text-orange-500', title: '社會覺察 Social Awareness', zh: '意識到環境（食物來源）與生命的連結。', en: 'Realizing the connection between the environment (food sources) and life.' },
+            { icon: 'zap', color: 'text-pink-500', title: '人際技巧 Relationship Skills', zh: '雖然互動較少，但可延伸至分享資源的討論。', en: 'Minimal interaction, but can extend to sharing resources.' },
+            { icon: 'heart', color: 'text-red-500', title: '負責任決策 Responsible Decision-Making', zh: '學習選擇對身體有益的食物而非僅追求美味。', en: 'Learning to choose food that is good for the body over just taste.' },
+        ];
+
+        const activities = [
+            {
+                zh: "1. 情緒與身體的氣壓計", en: "1. Emotion and Body Barometer", tags: ["Self-Awareness"],
+                steps: [
+                    { zh: "觀察毛毛蟲在吃不同食物時的表情與體型變化。", en: "Observe the caterpillar's expressions and body changes as it eats different foods." },
+                    { zh: "引導學生連結：當你很餓或吃太撐時，你的心情是什麼？", en: "Connect: How do you feel (emotionally) when you are very hungry or too full?" },
+                    { zh: "製作一個「身體感覺卡」，標示身體不同部位的不適或舒適感。", en: "Create 'Body Sensation Cards' marking comfort or discomfort in different body parts." }
+                ]
+            },
+            {
+                zh: "2. 「繭」裡的耐心時光", en: "2. Patient Moments in the Cocoon", tags: ["Self-Management"],
+                steps: [
+                    { zh: "討論毛毛蟲在繭裡待了兩週需要多少耐心。", en: "Discuss how much patience the caterpillar needed to stay in the cocoon for two weeks." },
+                    { zh: "進行 2 分鐘的靜心呼吸：想像自己在溫暖的繭裡等待蛻變。", en: "Conduct a 2-minute mindfulness breathing: Imagine being in a warm cocoon, waiting to transform." },
+                    { zh: "分享：生活中什麼時候最需要「等待」？那時候可以怎麼做？", en: "Share: When in life do you need to wait the most? What can you do then?" }
+                ]
+            },
+            {
+                zh: "3. 健康餐盤決策者", en: "3. Healthy Plate Decision-Maker", tags: ["Responsible Decision-Making"],
+                steps: [
+                    { zh: "分類書中毛毛蟲吃的食物（如：蛋糕、西瓜 vs. 綠色葉子）。", en: "Classify the foods the caterpillar ate (e.g., cake, watermelon vs. green leaf)." },
+                    { zh: "分組討論：為什麼吃完垃圾食物會肚子痛？綠色葉子為什麼有幫助？", en: "Group discussion: Why did the junk food cause a stomach ache? Why did the leaf help?" },
+                    { zh: "角色扮演：如果你是毛毛蟲的朋友，你會建議牠吃什麼？", en: "Role play: If you were the caterpillar's friend, what would you suggest it eat?" }
+                ]
+            }
+        ];
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('bg-white', 'text-green-600', 'border-green-500', 'shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]');
+                el.classList.add('text-slate-400', 'border-transparent');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-slate-400', 'border-transparent');
+            activeBtn.classList.add('bg-white', 'text-green-600', 'border-green-500', 'shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]');
+            
+            if (tabId === 'analysis') renderRadar();
+        }
+
+        // Render Radar Chart
+        function renderRadar() {
+            const size = 300;
+            const center = size / 2;
+            const radius = size * 0.4;
+            const angleStep = (Math.PI * 2) / selData.length;
+
+            let points = selData.map((d, i) => {
+                const x = center + radius * (d.score / 100) * Math.cos(i * angleStep - Math.PI / 2);
+                const y = center + radius * (d.score / 100) * Math.sin(i * angleStep - Math.PI / 2);
+                return `${x},${y}`;
+            }).join(' ');
+
+            let axesHtml = '';
+            selData.forEach((d, i) => {
+                const x = center + radius * Math.cos(i * angleStep - Math.PI / 2);
+                const y = center + radius * Math.sin(i * angleStep - Math.PI / 2);
+                const lx = center + (radius + 45) * Math.cos(i * angleStep - Math.PI / 2);
+                const ly = center + (radius + 40) * Math.sin(i * angleStep - Math.PI / 2);
+                axesHtml += `
+                    <line x1="${center}" y1="${center}" x2="${x}" y2="${y}" stroke="#cbd5e1" stroke-width="1" />
+                    <text x="${lx}" y="${ly}" text-anchor="middle" class="text-[11px] font-bold fill-slate-600">
+                        <tspan x="${lx}" dy="0">${d.label.zh}</tspan>
+                        <tspan x="${lx}" dy="1.2em">${d.label.en}</tspan>
+                    </text>
+                `;
+            });
+
+            let circlesHtml = [0.2, 0.4, 0.6, 0.8, 1].map(r => 
+                `<circle cx="${center}" cy="${center}" r="${radius * r}" fill="none" stroke="#e2e8f0" />`
+            ).join('');
+
+            const svg = `
+                <svg width="${size + 120}" height="${size + 100}" viewBox="0 0 ${size + 100} ${size + 100}">
+                    <g transform="translate(50, 50)">
+                        ${circlesHtml}
+                        ${axesHtml}
+                        <polygon points="${points}" fill="rgba(34, 197, 94, 0.3)" stroke="#22c55e" stroke-width="2" />
+                    </g>
+                </svg>
+            `;
+            document.getElementById('radar-container').innerHTML = svg;
+        }
+
+        // Render Dimension Cards
+        function renderDimensions() {
+            const container = document.getElementById('dimension-cards');
+            container.innerHTML = dimensions.map(d => `
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="${d.icon}" class="${d.color} w-5 h-5"></i>
+                        <h3 class="font-bold text-slate-800 text-sm md:text-base">${d.title}</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm">${d.zh}</p>
+                    <p class="text-slate-400 text-xs italic">${d.en}</p>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        // Render Activities
+        function renderActivities() {
+            const container = document.getElementById('activities');
+            container.innerHTML = activities.map(act => `
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="flex flex-wrap justify-between items-start gap-2 mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800">${act.zh}</h3>
+                            <p class="text-slate-500 font-medium">${act.en}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            ${act.tags.map(tag => `<span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs rounded-full border border-blue-100 font-bold">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        ${act.steps.map((step, si) => `
+                            <div class="flex gap-3">
+                                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-sm font-bold">${si + 1}</div>
+                                <div>
+                                    <p class="text-slate-700 text-sm md:text-base">${step.zh}</p>
+                                    <p class="text-slate-400 text-xs italic">${step.en}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Game State Logic
+        let gameDay = 1;
+        let gameHealth = 50;
+        const gameDays = [
+            { zh: '週一', en: 'Monday' },
+            { zh: '週二', en: 'Tuesday' },
+            { zh: '週六', en: 'Saturday' },
+            { zh: '週日', en: 'Sunday' }
+        ];
+
+        function initGame() {
+            const container = document.getElementById('game-container');
+            container.innerHTML = `
+                <div class="space-y-6">
+                    <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto text-4xl">🐛</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">毛毛蟲的成長冒險</h2>
+                        <p class="text-slate-500">Caterpillar's Growth Adventure</p>
+                    </div>
+                    <p class="max-w-md text-slate-600">
+                        扮演毛毛蟲做出選擇。注意你的身體感受與健康狀況！<br>
+                        <span class="text-xs italic">Make choices as the caterpillar. Pay attention to your feelings and health!</span>
+                    </p>
+                    <button onclick="startGame()" class="px-8 py-3 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors shadow-lg shadow-green-200">
+                        開始體驗 Start Experience
+                    </button>
+                </div>
+            `;
+        }
+
+        function startGame() {
+            gameDay = 1;
+            gameHealth = 50;
+            renderGamePlay();
+        }
+
+        function renderGamePlay(feedback = '') {
+            const container = document.getElementById('game-container');
+            const currentDay = gameDays[gameDay-1];
+            container.innerHTML = `
+                <div class="w-full max-w-lg space-y-8">
+                    <div class="flex justify-between items-center bg-slate-50 p-4 rounded-xl">
+                        <div class="text-left">
+                            <span class="block text-xs text-slate-400 font-bold uppercase">Current Day</span>
+                            <span class="text-lg font-bold text-slate-700">${currentDay.zh} / ${currentDay.en}</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-xs text-slate-400 font-bold uppercase">Health Status</span>
+                            <div class="w-32 h-3 bg-slate-200 rounded-full mt-1 overflow-hidden">
+                                <div class="h-full transition-all duration-500 ${gameHealth > 40 ? 'bg-green-500' : 'bg-red-500'}" style="width: ${gameHealth}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-slate-800">你感覺肚子很餓，你會怎麼選擇？</h3>
+                        <p class="text-slate-500 italic">You feel very hungry. What will you choose?</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                            <button onclick="handleChoice('healthy')" class="p-6 bg-white border-2 border-green-100 hover:border-green-500 rounded-2xl text-center group transition-all">
+                                <span class="text-4xl block mb-2 group-hover:scale-110 transition-transform">🥗</span>
+                                <span class="font-bold text-slate-700 block">吃健康的食物</span>
+                                <span class="text-xs text-slate-400">Eat healthy food</span>
+                            </button>
+                            <button onclick="handleChoice('unhealthy')" class="p-6 bg-white border-2 border-red-100 hover:border-red-500 rounded-2xl text-center group transition-all">
+                                <span class="text-4xl block mb-2 group-hover:scale-110 transition-transform">🍰</span>
+                                <span class="font-bold text-slate-700 block">吃甜點與垃圾食物</span>
+                                <span class="text-xs text-slate-400">Eat junk food</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="h-6 text-sm font-bold">${feedback}</div>
+                </div>
+            `;
+        }
+
+        function handleChoice(type) {
+            if (type === 'healthy') {
+                gameHealth = Math.min(100, gameHealth + 15);
+                feedback = '<span class="text-green-600">❤ 我覺得身體很舒服 I feel good</span>';
+            } else {
+                gameHealth = Math.max(0, gameHealth - 25);
+                feedback = '<span class="text-red-600">⚠ 嗚...我肚子好痛 Ouch... stomach ache</span>';
+            }
+            
+            if (gameDay < 4) {
+                gameDay++;
+                renderGamePlay(feedback);
+            } else {
+                renderGameResult();
+            }
+        }
+
+        function renderGameResult() {
+            const container = document.getElementById('game-container');
+            container.innerHTML = `
+                <div class="space-y-6">
+                    <div class="text-6xl animate-bounce">${gameHealth > 60 ? '🦋' : '🐛'}</div>
+                    <h2 class="text-2xl font-bold text-slate-800">${gameHealth > 60 ? '你蛻變成了美麗的蝴蝶！' : '你現在是一隻強壯的大毛毛蟲了！'}</h2>
+                    <p class="text-slate-500 italic">${gameHealth > 60 ? 'You transformed into a beautiful butterfly!' : 'You are now a strong big caterpillar!'}</p>
+                    <div class="bg-slate-50 p-6 rounded-2xl text-left max-w-md mx-auto">
+                        <h3 class="font-bold text-slate-700 mb-2 border-b pb-2">SEL 成長反思 | Reflection</h3>
+                        <p class="text-sm text-slate-600">學會傾聽身體的聲音，是「自我覺察」的第一步。當你選擇不同食物時，身體的感受有什麼變化？</p>
+                    </div>
+                    <button onclick="initGame()" class="px-8 py-3 border-2 border-slate-200 hover:bg-slate-50 text-slate-600 rounded-full font-bold">再玩一次 Play Again</button>
+                </div>
+            `;
+        }
+
+        // Initialize Page
+        window.onload = () => {
+            lucide.createIcons();
+            renderRadar();
+            renderDimensions();
+            renderActivities();
+            initGame();
+        };
+    </script>
+</body>
+</html>
